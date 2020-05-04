@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from .forms import LocationForm
 from .models import Location
 import requests
@@ -7,25 +7,49 @@ import requests
 def index(request):
     return render(request,'track/index.html',{})
 
+def tes(request):
+    url= 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=2edc88045665cd7d7e9ce52053e0948a'
+    c="blbllblb"
+    r = requests.get(url.format(c)).json()
+    if r['message']=='city not found':
+        return HttpResponse("Not Found")
+    print(r)
+    return render(request,'track/index.html')
+
 def tracker(request):
     n = Location.objects.all()
     if request.method == "POST":
         form = LocationForm(request.POST)
-        if form.POST.get("Country") not in n:
-            form.save()
+        rr=True
         if form.is_valid():
             url= 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=2edc88045665cd7d7e9ce52053e0948a'
             city=(request.POST.get("Country"))
             r = requests.get(url.format(city)).json()
-            w_d = {
-                'city' : city,
-                'temperature' : r['main']['temp'],
-                'icon' : r['weather'][0]['icon'],
-                'description' : r['weather'][0]['description']
-            }
+
+            if len(r) == 2:
+                if r['message']=='city not found':
+                    return HttpResponse("Not Found")
+            al = []
+            for i in n:
+                if str(i.Country) == str(city):
+                    rr=False
+            if rr==True:
+                form.save()
+                n=Location.objects.all()
+            for i in n:
+                r = requests.get(url.format(i.Country)).json()
+                print(r)
+                w_d = {
+                    'city' : i.Country,
+                    'temperature' : r['main']['temp'],
+                    'icon' : r['weather'][0]['icon'],
+                    'description' : r['weather'][0]['description']
+                }
+                al.append(w_d)
+            print (al)
             print(r)
             form = w_d
-            return render(request,'track/result.html',{'form':form,'n':n})
+            return render(request,'track/result.html',{'al':al})
     else:
         form = LocationForm()
     return render(request, 'track/tracker.html', {'form': form})
