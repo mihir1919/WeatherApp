@@ -1,0 +1,28 @@
+{% extends 'track/base.html' %}
+{% block content %}
+<h1 style="text-align:center;" >Report</h1>
+<div style="margin-left:150px;" class="container-fluid">
+
+        <table style="text-align:center;" class="table table-striped table-inverse table-responsive">
+            <thead class="thead-inverse">
+                <tr>
+                <th>sno</th>
+                {% for i in out.0 %}
+                        <th>{{ i }}</th>
+                {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in out %}
+                    <tr>
+                        <td scope="row">{{ forloop.counter }}</td>
+                        {% for k,v in i.items %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+        </table>
+
+</div>
+{% endblock %}

@@ -8,13 +8,12 @@ def index(request):
     return render(request,'track/index.html',{})
 
 def tes(request):
-    url= 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=2edc88045665cd7d7e9ce52053e0948a'
-    c="blbllblb"
-    r = requests.get(url.format(c)).json()
-    if r['message']=='city not found':
-        return HttpResponse("Not Found")
+    url='https://api.rootnet.in/covid19-in/stats/latest'
+    r=requests.get(url).json()
     print(r)
-    return render(request,'track/index.html')
+    out=r['data']['regional']
+    context={'out': out } 
+    return render(request,'track/tes.html',context)
 
 def tracker(request):
     n = Location.objects.all()
