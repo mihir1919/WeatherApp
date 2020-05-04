@@ -1,0 +1,16 @@
+{% extends 'track/base.html' %}
+<html>
+    {% block content %}
+    <body>
+        <div class="jumbotron" style="text-align:center">
+          <h1 class="display-3">Covid Tracker WebApp</h1>
+          <p class="lead">Check Covid vulnerability in your area</p>
+          <hr class="my-2">
+          <p>More info</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'tracker' %}" role="button">Check your area</a>
+          </p>
+        </div>
+    </body>
+    {% endblock %}
+</html>
