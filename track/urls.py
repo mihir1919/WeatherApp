@@ -7,4 +7,5 @@ urlpatterns = [
     path('tes/',views.tes,name="tes"),
     path('res/',views.res,name="res"),
     path('res/<str:city>/', views.resources,name="resources"),
+    path('yo/<str:city>/',views.my_view,name="yo"),
 ]

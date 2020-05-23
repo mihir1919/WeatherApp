@@ -1,11 +1,26 @@
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect,HttpResponse,get_object_or_404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializer import LocSerializer
 from .forms import LocationForm
 from .models import Location
+from django.http import JsonResponse
 import requests,json
 
 # Create your views here.
+
+# class LocList(APIView):
+#     def get(self):
+        
+
+#     def post(self):
+#         pass
+
+
 def index(request):
     return render(request,'track/index.html',{})
+    
 
 
 def res(request):
@@ -44,6 +59,39 @@ def resources(request,city):
     #             print(res["zones"][i])
     # k=dis,state,zone
     # return HttpResponse(k)
+
+
+def my_view(request,city):
+    y=requests.get("https://api.covid19india.org/resources/resources.json")
+    t2=(y.text)
+    res2=json.loads(t2)
+    data={}
+    l=[]
+    s=""
+    for i in range(len(res2["resources"])):
+        if(res2["resources"][i]["city"]==city):
+            s=res2["resources"][i]["state"]
+            l.append((res2["resources"][i]))
+    data['resources']=l
+    r=requests.get("https://api.covid19india.org/zones.json")
+    t=(r.text)
+    res=json.loads(t)
+    f=0
+    dis=""
+    state=""
+    zone=""
+    nd=[]
+    for i in range(732):
+        if(res["zones"][i]["district"]==city):
+            nd.append(res["zones"][i])
+            f=1
+            break
+    if(f==0):
+        for i in range(732):
+            if(city in res["zones"][i]["district"]):
+                nd.append(res["zones"][i])
+    data['report']=nd
+    return JsonResponse(data)
 
 def tes(request):
     url='https://api.rootnet.in/covid19-in/stats/latest'
