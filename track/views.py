@@ -1,21 +1,8 @@
-from django.shortcuts import render,redirect,HttpResponse,get_object_or_404
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from .serializer import LocSerializer
+from django.shortcuts import render,redirect,HttpResponse
 from .forms import LocationForm
 from .models import Location
 from django.http import JsonResponse
 import requests,json
-
-# Create your views here.
-
-# class LocList(APIView):
-#     def get(self):
-        
-
-#     def post(self):
-#         pass
 
 
 def index(request):
