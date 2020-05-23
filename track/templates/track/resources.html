@@ -1,0 +1,16 @@
+{% extends 'track/base.html' %}
+{% block content %}
+{% for i in l %}
+    <div class="jumbotron" style="text-align:center">
+        <h1 class="display-3">{{ i.category }} </h1>
+        <p class="lead">{{ i.city }}</p>
+        <p class="lead">{{ i.contact }}</p>
+        <hr class="my-2">
+        <p>{{ i.nameoftheorganisation }}</p>
+        <p class="lead">
+            <p class="btn btn-primary btn-lg" href="Jumbo action link" role="button">{{ i.descriptionandorserviceprovided }}</p>
+            <p>{{ i.phonenumber }}</p>
+        </p>
+    </div>
+{% endfor %}
+{% endblock %}

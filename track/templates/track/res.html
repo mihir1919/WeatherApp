@@ -1,0 +1,15 @@
+{% extends 'track/base.html' %}
+{% block content %}
+<div class="w3-container">
+  <h2>Districts in India</h2>
+  <p>Check resources available:</p>
+  <ul class="w3-ul">
+    {% for i in l %}
+    <li><a href="{% url 'resources' i %}">{{ i }}</a></li>
+    {% endfor %}
+  </ul>
+{% comment %} {% for i in l %}
+    <button type="button" class="btn btn-success btn-lg"><a style="color:white" href="{% url 'resources' i %}">{{ i }}</a></button>
+    <h2><a href="{% url 'resources' i %}">{{ i }}</a></h2>{% endfor %} {% endcomment %}
+
+{% endblock %}
