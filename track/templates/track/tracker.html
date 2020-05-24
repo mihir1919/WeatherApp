@@ -2,8 +2,8 @@
 <html>
 {% block content %}
 <body>
-<h1>Enter the location</h1>
-<div class="container">
+<div class="jumbotron" style="text-align:center">
+    <h1 class="display-3">Enter Location</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}

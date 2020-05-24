@@ -3,13 +3,26 @@
 <div class="w3-container">
   <h2>Districts in India</h2>
   <p>Check resources available:</p>
-  <ul class="w3-ul">
-    {% for i in l %}
-    <li><a href="{% url 'resources' i %}">{{ i }}</a></li>
+  {% for i,j in l.items %}
+    <div class="jumbotron">
+      <h2 class="display-3">{{ i }}</h2>
+      <hr class="my-2">
+      <p>Districts</p>
+      <p class="lead">
+        {% for k in j %}
+        <div class="list-group">
+          <a href="/res/{{ k }}/" class="list-group-item list-group-item-action">{{ k }}</a>
+        </div>
+            {% comment %} <h5><a href="/res/{{ k }}/" role="button">{{ k }}</a></h5>   {% endcomment %}
+        {% endfor %}
+      </p>
+    </div>
+    {% comment %} {% for k in i %}
+      <h2><a href="{% url 'resources' k %}">{{ k }}</a></h2>
+    {% endfor %} {% endcomment %}
     {% endfor %}
-  </ul>
-{% comment %} {% for i in l %}
-    <button type="button" class="btn btn-success btn-lg"><a style="color:white" href="{% url 'resources' i %}">{{ i }}</a></button>
-    <h2><a href="{% url 'resources' i %}">{{ i }}</a></h2>{% endfor %} {% endcomment %}
 
 {% endblock %}
+
+
+{% comment %} <h2><a href="{% url 'resources' i %}"></a></h2> {% endcomment %}

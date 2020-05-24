@@ -8,10 +8,25 @@
           <hr class="my-2">
           <p>More info</p>
           <p class="lead">
-            <a class="btn btn-primary btn-lg" href="{% url 'tes' %}" role="button">Check your area</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'tes' %}" role="button">Check Covid Status in India</a>
           </p>
         </div>
+        <div class="container">
+            <h2 style="text-alogn:center" class="display-3">Latest News</h2>
+            <p style="text-alogn:center" class="lead">Around the world</p>
+            <hr class="my-2">
+            {% for i in l %}
+            <div class="jumbotron">
+              <h3 class="display-3">{{ i.title }}</h3>
+              <hr class="my-2">
+              <p>More info</p>
+              <img src={{ i.img }} class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">{{ i.desc }}</a>
+              </p>
+            </div>
+            {% endfor %}
+          </div>
   </body>
-  <button><a href="{% url 'tracker' %}">Check Weather<a></button>
     {% endblock %}
 </html>
