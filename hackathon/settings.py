@@ -25,7 +25,7 @@ SECRET_KEY = 'o!xdj8tpqncs-_uo#fpz7oo_6i1s!_@i-0s3q)fw@3qj*^1^(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mihir19.pythonanywhere.com']
 
 
 # Application definition
@@ -126,3 +126,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
