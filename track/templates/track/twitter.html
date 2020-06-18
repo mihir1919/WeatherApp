@@ -1,0 +1,26 @@
+{% extends 'track/base.html' %}
+{% block content %}
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    
+
+<section class="text-gray-700 body-font">
+    
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Displaying tweets related to</h2>
+      <p class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{{ s }}</p>
+      <h1 class="lg:w-2/3 mx-auto leading-relaxed text-base">Total tweets -> {{ t }}</h1>
+    </div>
+    <div class="flex flex-wrap">
+    {% for i,j in d.items %}
+        
+      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200">
+        <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Tweet {{ i }} </h2>
+        <p class="leading-relaxed text-base mb-4">{{ j }}</p>
+        
+      </div>
+    {% endfor %}
+    </div>
+    
+</section>
+{% endblock  %}

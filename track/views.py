@@ -3,6 +3,8 @@ from .forms import LocationForm
 from .models import Location
 from django.http import JsonResponse
 import requests,json
+import tweepy
+from geopy.geocoders import Nominatim
 
 
 def index(request):
@@ -148,3 +150,43 @@ def tracker(request):
     else:
         form = LocationForm()
     return render(request, 'track/tracker.html', {'form': form})
+
+def twitter(request):
+    CONSUMER_KEY = 'vG4qN6vZn47PfLvQiOl5vEgwI'
+    CONSUMER_SECRET = 'I50fXTBjtopq2jAkfztGwFmifOLpYj0tshRSyruOThFRgNnMr8'
+    ACCESS_KEY = '3141790171-XjYckAXh1NrgTUgJvZ4y5JCOiDmcAps2YyByP2z'
+    ACCESS_SECRET = '4dbPGQK0voro1tRhMwcGnw1wjdCjLPxpNnAQIbBQInioc'
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+    search_words = "#COVID19India"
+    n=20
+    country="India"
+    district="Hauz Khas"
+    city="New Delhi"
+    rangee=30
+    if (request.method == "POST"):
+        search_words = request.POST.get("topic")
+        n=int(request.POST.get("no"))
+        city = request.POST.get("city")
+        country = request.POST.get("country")
+        district = request.POST.get("district")
+        rangee=int(request.POST.get("rangee"))
+    api = tweepy.API(auth)
+    locator = Nominatim(user_agent="track")
+    location = locator.geocode(str(country))
+    print("Latitude = {}, Longitude = {}".format(location.latitude, location.longitude))
+    Latitude = location.latitude
+    Longitude = location.longitude
+    print(str(Latitude)+','+str(Longitude)+',1km')
+    tweets = tweepy.Cursor(api.search,q=search_words,geocode=str(Latitude)+','+str(Longitude)+','+str(rangee)+'km',lang="en").items(n)
+    d={}
+    i=1
+    for tweet in tweets:
+        print(tweet.text)
+        d[i]=(tweet.text)
+        i+=1
+    t=i-1
+    return render(request,'track/twitter.html',{'d':d,'s':search_words,'t':t})
+
+def searchtwitter(request):
+    return render(request, 'track/twit.html')

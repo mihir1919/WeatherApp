@@ -9,4 +9,6 @@ urlpatterns = [
     path('res/<str:city>/', views.resources,name="resources"),
     path('yo/<str:city>/',views.my_view,name="yo"),
     path('sup/<str:state>/',views.dis_view,name="sup"),
+    path('searchtwitter/twit/',views.twitter,name="twitter"),
+    path('searchtwitter/',views.searchtwitter,name="searchtwitter"),
 ]
