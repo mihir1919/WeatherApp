@@ -28,15 +28,16 @@ def news(request,topic):
     t=(r.text)
     response=json.loads(t)
     l=[]
-    if(response['status']=='ok'):
-        for i in range(5):
-            d={}
-            d["source"]=response['articles'][i]['source']['name']
-            d["author"]=response['articles'][i]['author']
-            d["title"]=response['articles'][i]['title']
-            d['img']=response['articles'][i]['urlToImage']
-            d["desc"]=response['articles'][i]['description']
-            l.append(d)
+    if(topic):
+        if(response['status']=='ok'):
+            for i in range(5):
+                d={}
+                d["source"]=response['articles'][i]['source']['name']
+                d["author"]=response['articles'][i]['author']
+                d["title"]=response['articles'][i]['title']
+                d['img']=response['articles'][i]['urlToImage']
+                d["desc"]=response['articles'][i]['description']
+                l.append(d)
     return render(request,'track/index.html',{'l':l})
 
 def res(request):

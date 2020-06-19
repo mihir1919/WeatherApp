@@ -1,8 +1,14 @@
 {% extends 'track/base.html' %}
 {% block content %}
+<br>
+
+<br>
 <div class="w3-container">
-  <h2>Districts in India</h2>
-  <p>Check resources available:</p>
+  <div class="container" style="text-align:center;">
+    <b><h1>Districts in India</h1></b>
+  <b><p>Check resources available:</p></b>
+  </div>
+  <br>
   {% for i,j in l.items %}
     <div class="jumbotron">
       <h2 class="display-3">{{ i }}</h2>
