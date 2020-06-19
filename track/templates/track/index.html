@@ -12,25 +12,35 @@
           </p>
         </div>
         <section class="text-gray-700 body-font">
+        
+  <style>
+    .jumbotron img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+
+    
+}
+  </style>
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">General</h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Select News Category </h1>
       <p class="lg:w-1/2 w-full leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table.</p>
     </div>
     <div class="flex flex-wrap -m-4">
       <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-300 p-6 rounded-lg">
+        <a href="{% url 'news' 'technology' %}"><div class="border border-gray-300 p-6 rounded-lg">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
             </svg>
           </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Economy</h2>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Technology</h2>
           <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
         </div>
-      </div>
+      </div></a>
       <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-300 p-6 rounded-lg">
+        <a href="{% url 'news' 'entertainment' %}"><div class="border border-gray-300 p-6 rounded-lg">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
               <circle cx="6" cy="6" r="3"></circle>
@@ -38,12 +48,13 @@
               <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
             </svg>
           </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Lifestyle</h2>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Entertainment</h2>
           <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
         </div>
       </div>
+      </a>
       <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-300 p-6 rounded-lg">
+        <a href="{% url 'news' 'Sports' %}"><div class="border border-gray-300 p-6 rounded-lg">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
               <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
@@ -54,19 +65,21 @@
           <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
         </div>
       </div>
+      </a>
       <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-300 p-6 rounded-lg">
+        <a href="{% url 'news' 'health' %}"><div class="border border-gray-300 p-6 rounded-lg">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
               <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
             </svg>
           </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Global</h2>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Health</h2>
           <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
         </div>
       </div>
+      </a>
       <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-300 p-6 rounded-lg">
+        <a href="{% url 'news' 'Business' %}"><div class="border border-gray-300 p-6 rounded-lg">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
@@ -75,9 +88,9 @@
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Business</h2>
           <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
         </div>
-      </div>
+      </div></a>
       <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-300 p-6 rounded-lg">
+        <a href="{% url 'news' 'General' %}"><div class="border border-gray-300 p-6 rounded-lg">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -86,23 +99,22 @@
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">General</h2>
           <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>
         </div>
-      </div>
+      </div></a>
     </div>
-    <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+    
   </div>
 </section>
         <div class="container">
-            <h2 style="text-alogn:center" class="display-3">Latest News</h2>
-            <p style="text-alogn:center" class="lead">Around the world</p>
+            <h2 style="text-align:center;margin:auto;" class="display-3">Latest News</h2>
+            <p class="lead">Around the world</p>
             <hr class="my-2">
             {% for i in l %}
-            <div class="jumbotron">
+            <div class="jumbotron" style="text-align:center;margin:auto;">
               <h3 class="display-3">{{ i.title }}</h3>
               <hr class="my-2">
-              <p>More info</p>
-              <img src={{ i.img }} class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
-              <p class="lead">
-                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">{{ i.desc }}</a>
+              <div style="text-align:center;margin:auto;"><img src={{ i.img }} class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+              </div><p class="lead">
+                <p class="btn btn-primary btn-lg" role="button">{{ i.desc }}</p>
               </p>
             </div>
             {% endfor %}
