@@ -1,6 +1,14 @@
 {% extends 'track/base.html' %}
 {% block content %}
-    <div class="jumbotron" style="text-align:center;width:500px;margin:auto;background-color:#1DA1F2">
+<style>
+  .yo
+  {
+    background-color: black;
+    background-image : url("https://media.wired.com/photos/5a0655ece16e3b181d3dac3f/master/w_1969,h_1477,c_limit/Twitter-FeatureArt.jpg")
+  }
+</style>
+<div class="yo">
+    <div class="jumbotron" style="text-align:center;width:500px;margin:auto;background: initial;">
         <h1 class="display-3">Check recent tweets</h1>
         <p class="lead">Enter Topic you want to search</p>
         <hr class="my-2">
@@ -36,5 +44,6 @@
            
         </form>
     </div>
+</div>
    
 {% endblock  %}
