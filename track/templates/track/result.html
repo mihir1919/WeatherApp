@@ -1,12 +1,24 @@
 {% extends 'track/base.html' %}
 {% block content %}
-    {% for i in al %}
-    <div class="container" style="text-align:center">
-        <h1>{{ i.city }}</h1>
-        <img src="https://openweathermap.org/img/w/{{ i.icon }}.png">
-        <h2>{{ i.temperature }}</h2>
-        {{ i.description }}
+    
+     <div class="flex flex-wrap">
+      <div style="text-align:center;margin:auto;">
+        <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"><br><b><h1>{{ w_da.city }}</h1></b> </h2>
+        <img src="https://openweathermap.org/img/w/{{ w_da.icon }}.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+        <p class="leading-relaxed text-base mb-4">{{ w_da.temperature }}℃</p>
+        <b><p class="leading-relaxed text-base mb-4">{{ w_da.description }}</p></b>
+      </div>
     </div>
-
+</section>
+    <div class="flex flex-wrap">
+    {% for i in al %}
+      <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200">
+        <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"><br><b>{{ i.city }}</b> </h2>
+        <img src="https://openweathermap.org/img/w/{{ i.icon }}.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+        <p class="leading-relaxed text-base mb-4">{{ i.temperature }}℃</p>
+        <b><p class="leading-relaxed text-base mb-4">{{ i.description }}</p></b>
+      </div>
     {% endfor %}
+    </div>
+    
 {% endblock %}

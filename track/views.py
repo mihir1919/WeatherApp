@@ -136,13 +136,20 @@ def tracker(request):
         form = LocationForm(request.POST)
         rr=True
         if form.is_valid():
-            url= 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=2edc88045665cd7d7e9ce52053e0948a'
+            url= 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=2edc88045665cd7d7e9ce52053e0948a'
             city=(request.POST.get("Country"))
             r = requests.get(url.format(city)).json()
-
+            w_da={}
             if len(r) == 2:
                 if r['message']=='city not found':
                     return HttpResponse("Not Found")
+            w_da = {
+                'city' : city,
+                'temperature' : r['main']['temp'],
+                'icon' : r['weather'][0]['icon'],
+                'description' : r['weather'][0]['description']
+            }
+            print(w_da)   
             al = []
             for i in n:
                 if str(i.Country) == str(city):
@@ -152,7 +159,7 @@ def tracker(request):
                 n=Location.objects.all()
             for i in n:
                 r = requests.get(url.format(i.Country)).json()
-                print(r)
+                #print(r)
                 w_d = {
                     'city' : i.Country,
                     'temperature' : r['main']['temp'],
@@ -160,10 +167,10 @@ def tracker(request):
                     'description' : r['weather'][0]['description']
                 }
                 al.append(w_d)
-            print (al)
-            print(r)
+            #print (al)
+            #print(r)
             form = w_d
-            return render(request,'track/result.html',{'al':al})
+            return render(request,'track/result.html',{'al':al,'w_da':w_da})
     else:
         form = LocationForm()
     return render(request, 'track/tracker.html', {'form': form})
