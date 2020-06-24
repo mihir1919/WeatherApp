@@ -5,7 +5,7 @@ from django.http import JsonResponse
 import requests,json
 import tweepy
 from geopy.geocoders import Nominatim
-
+from textblob import TextBlob as T
 
 def index(request):
     r=requests.get('http://newsapi.org/v2/top-headlines?country=in&apiKey=2d9ce72f1abe4c3bbbed367592c3ff44')
@@ -198,12 +198,28 @@ def twitter(request):
     tweets = tweepy.Cursor(api.search,q=search_words,geocode=str(Latitude)+','+str(Longitude)+','+str(rangee)+'km',lang="en").items(n)
     d={}
     i=1
+    labels=["Positive","Neutral","Negative"]
+    data=[0.0,0.0,0.0]
     for tweet in tweets:
-        print(tweet.text)
-        d[i]=(tweet.text)
+        #print(tweet.text)
+        f=T(tweet.text)
+        ff=(list(f.sentiment))
+        ff[0]=round(ff[0],3)
+        ff[1]=round(ff[1],3)
+        if(ff[0]<0.00):
+            data[2]+=1
+        elif(ff[0]==0.00):
+            data[1]+=1
+        elif(ff[0]>0.00):
+            data[0]+=1
+        l=[tweet.text,ff]
+        d[i]=l
         i+=1
     t=i-1
-    return render(request,'track/twitter.html',{'d':d,'s':search_words,'t':t})
+    print(data)
+    print(labels)
+    return render(request,'track/twitter.html',{'d':d,'s':search_words,'t':t,'labels': labels,
+        'data': data})
 
 def searchtwitter(request):
     return render(request, 'track/twit.html')
