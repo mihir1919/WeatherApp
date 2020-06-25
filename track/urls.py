@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('',views.index,name="index"),
+    path('/sitemap',views.sitemap,name="sitemap"),
     path('news/<str:topic>/',views.news,name="news"),
     path('tracker/',views.tracker,name="tracker"),
     path('tes/',views.tes,name="tes"),
