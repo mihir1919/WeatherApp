@@ -13,4 +13,6 @@ urlpatterns = [
     path('sup/<str:state>/',views.dis_view,name="sup"),
     path('searchtwitter/twit/',views.twitter,name="twitter"),
     path('searchtwitter/',views.searchtwitter,name="searchtwitter"),
+    path('normaltwitter/ntwit/',views.normtwitter,name="normtwitter"),
+    path('normaltwitter/',views.snt,name="snt"),
 ]

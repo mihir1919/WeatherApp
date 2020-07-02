@@ -9,40 +9,21 @@
 </style>
 <div class="yo">
     <div class="jumbotron" style="text-align:center;width:500px;margin:auto;background: initial ;">
-    <b>
         <h1 class="display-3">Check recent tweets</h1>
         <p class="lead">Enter Topic you want to search</p>
         <hr class="my-2">
        
-        <form method="POST" action="twit/">
+        <form method="POST" action="ntwit/">
             {% csrf_token %}
             <div>
             <div class="form-group">
               <label for="">Topic</label>
               <input type="text"
                 class="form-control" name="topic" id="" aria-describedby="helpId" placeholder="Ex. COVIDINDIA">
-      
-            </div>
-            <div class="form-group">
-              <label for=""># of Tweets</label>
-              <input type="text"
-                class="form-control" name="no" id="" aria-describedby="helpId" placeholder="20">
-              
-            </div>
-            <div class="form-group">
-              <label for="">Location</label>
-              <input type="text"
-                class="form-control" name="country" id="" aria-describedby="helpId" placeholder="Ex. India">
-              
-            </div>
-            <div class="form-group">
-              <label for="">Range</label>
-              <input type="text"
-                class="form-control" name="rangee" id="" aria-describedby="helpId" placeholder="Ex. 300">
             </div>
              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-           </b>
+           
         </form>
     </div>
 </div>

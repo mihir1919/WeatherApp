@@ -28,6 +28,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'searchtwitter' %}">Check Latest Tweets</a>
             </li>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                            Twitter Search
+                        </button>
+                <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <a class="dropdown-item" href="{% url 'snt' %}">Search by Topic</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'searchtwitter' %}">Advanced Search</a>
+                </div>
+            </div>
         </ul>
       </head>
           {% block content %}
