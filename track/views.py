@@ -92,7 +92,7 @@ def execute(request,var1,var2):
     plt.plot(predictors[outcomes==2][:,0],predictors[outcomes==2][:,1],"go")
     plt.plot(predictors[outcomes==1][:,0],predictors[outcomes==1][:,1],"o",color='orange')
     plt.plot(p[0],p[1],"bo")
-    plt.savefig('track/static/images/Timage.png')
+    plt.savefig('/home/mihir19/mihir19.pythonanywhere.com/static/images/Timage.png')
     
     col="red"
 
