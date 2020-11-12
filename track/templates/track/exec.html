@@ -1,0 +1,23 @@
+{% extends 'track/base.html' %}
+<html>
+    {% block content %}
+    <body>
+        <div class="jumbotron" style="text-align:center">
+          <h1 class="display-3">HISTOGRAM OF YOUR ZONE</h1>
+          <b><h4  style="color:{{ col }}" >{{ zone }}</h4></b>
+          <p class="lead">Longitude {{ var1 }} And Latitude  {{var2}}</p>
+          <hr class="my-2">
+          <p>More info</p>
+          <img src="/track/static/images/Timage.png">
+        </div>
+        <section class="text-gray-700 body-font">
+        
+  <style>
+    .jumbotron img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;    
+}
+  </style>
+    {% endblock %}
+</html>

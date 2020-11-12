@@ -15,4 +15,5 @@ urlpatterns = [
     path('searchtwitter/',views.searchtwitter,name="searchtwitter"),
     path('normaltwitter/ntwit/',views.normtwitter,name="normtwitter"),
     path('normaltwitter/',views.snt,name="snt"),
+    path('exec/<int:var1>/<int:var2>/',views.execute,name="exec"),
 ]
