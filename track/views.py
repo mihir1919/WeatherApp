@@ -334,8 +334,8 @@ def twitter(request):
         d[i]=l
         i+=1
     word_cloud  = WordCloud(width=800,height=800,background_color='white',stopwords=stopwords,min_font_size=10).generate(stri)
-    word_cloud.to_file(BASE_DIR+'track/static/images/Timage.png')
-    # word_cloud.to_file('/home/mihir19/mihir19.pythonanywhere.com/track/static/images/Timage.png')
+    # word_cloud.to_file(BASE_DIR+'track/static/images/Timage.png')
+    word_cloud.to_file('/home/mihir19/mihir19.pythonanywhere.com/track/static/images/Timage.png')
     t=i-1
     print(data)
     print(labels)
@@ -374,8 +374,8 @@ def normtwitter(request):
             d[i]=l
             i+=1
     word_cloud  = WordCloud(width=800,height=800,background_color='white',stopwords=stopwords,min_font_size=10).generate(stri)
-    word_cloud.to_file('track/static/images/Timage.png')
-    # word_cloud.to_file('/home/mihir19/mihir19.pythonanywhere.com/track/static/images/Timage.png')
+    # word_cloud.to_file('track/static/images/Timage.png')
+    word_cloud.to_file('/home/mihir19/mihir19.pythonanywhere.com/track/static/images/Timage.png')
     t=i-1
     return render(request,'track/nt.html',{'d':d,'s':request.POST.get('topic'),'t':t,'labels': labels,
         'data': data})
