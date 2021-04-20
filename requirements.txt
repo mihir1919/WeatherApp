@@ -5,7 +5,7 @@ astroid==2.0.4
 async-generator==1.10
 async-timeout==3.0.1
 attrs==19.3.0
-autobahn==20.4.3
+autobahn==20.12.3
 Automat==20.2.0
 backcall==0.1.0
 bleach==3.1.5
