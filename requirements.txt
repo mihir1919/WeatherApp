@@ -138,7 +138,7 @@ Twisted==20.3.0
 TwitterSearch==1.0.2
 txaio==20.4.1
 typed-ast==1.1.0
-urllib3==1.25.9
+urllib3==1.26.5
 voila==0.1.21
 wcwidth==0.1.9
 webencodings==0.5.1
