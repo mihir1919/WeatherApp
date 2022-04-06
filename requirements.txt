@@ -134,7 +134,7 @@ tornado==6.0.4
 tqdm==4.46.1
 traitlets==4.3.3
 tweepy==3.6.0
-Twisted==20.3.0
+Twisted==22.2.0
 TwitterSearch==1.0.2
 txaio==20.4.1
 typed-ast==1.1.0
