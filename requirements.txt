@@ -93,7 +93,7 @@ Pillow==7.1.2
 post==2019.4.13
 prometheus-client==0.7.1
 prompt-toolkit==3.0.5
-protobuf==3.7.1
+protobuf==3.18.3
 psycopg2==2.7.5
 psycopg2-binary==2.8.5
 ptyprocess==0.6.0
